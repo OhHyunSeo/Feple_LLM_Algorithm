@@ -8,6 +8,7 @@ from supabase import create_client, Client
 import json
 from datetime import datetime
 import time
+import math
 
 # absolute_grading 모듈들 import
 sys.path.append('./absolute_grading')
@@ -159,7 +160,7 @@ def compute_final_score(scores):
         scores["Stability"]["score"]
     ]
     avg_score = sum(score_list) / len(score_list)
-    final_score = round(avg_score * 100, 2)
+    final_score = math.ceil(avg_score * 100)
     return final_score
 
 # .env 파일에서 환경변수 불러오기
